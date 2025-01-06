@@ -104,4 +104,5 @@ public static Board getInstance() {
 ```
 
   **Waarom?**: Het Observer-patroon houdt alle betrokken partijen op de hoogte van de veranderingen in de staat van het bord.
+  
 ---
