@@ -30,6 +30,16 @@ public static Board getInstance() {
 ### **`Player.java`**
 - **Factory Method Pattern**:
   `Player` is een abstracte klasse die de basis legt voor het aanmaken van spelers. Door het gebruik van het Factory Method-patroon kunnen verschillende soorten spelers worden aangemaakt, zoals de `HumanPlayer`.
+```java
+    public Player(String name, char mark) {
+        this.name = name;
+        this.mark = mark;
+    }
+    public HumanPlayer(String name, char mark) {
+        super(name, mark);
+        scanner = new Scanner(System.in);
+    }
+```
 
   **Waarom?**: Dit maakt het eenvoudig om in de toekomst andere soorten spelers toe te voegen, bijvoorbeeld een AI-speler, zonder de kernlogica van het spel te wijzigen.
 
