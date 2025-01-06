@@ -14,6 +14,14 @@ TKosterHZ heeft de bestanden in 1 branch gezet, pieterjantreur heeft de README s
 ### **`Board.java`**
 - **Singleton Pattern**: 
   Dit patroon zorgt ervoor dat er slechts één instantie van het bord (`Board`) bestaat in het programma. De methode `getInstance()` zorgt ervoor dat dezelfde instantie wordt gebruikt gedurende het hele spel.
+```java
+public static Board getInstance() {
+        if (instance == null) {
+            instance = new Board();
+        }
+        return instance;
+    }
+```
   
   **Waarom?**: Het bord is een gedeeld object dat door beide spelers wordt gebruikt. Het Singleton-patroon voorkomt dat er meerdere instanties van het bord worden aangemaakt, wat consistentie garandeert.
 
