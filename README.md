@@ -9,6 +9,7 @@ TKosterHZ en pieterjantreur
 de github repository was niet perfect opgesteld dus moesten we de bestanden op het eind handmatig overzetten naar een branch.
 TKosterHZ heeft de Game-, Board-, en de Main class geimplementeerd.
 pieterjantreur heeft de Player-, HumanPlayer, InputAdapter interface en ConsoleInputAdapter classes geimplementeerd
+TKosterHZ heeft de bestanden in 1 branch gezet, pieterjantreur heeft de README samengesteld.
 
 ### **`Board.java`**
 - **Singleton Pattern**: 
