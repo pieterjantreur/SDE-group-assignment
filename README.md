@@ -2,7 +2,7 @@
 
 dit programma is een console-based versie van tic-tac-toe
 
-onderstaand is de link naar de repository
+meegegeven is de link naar de repository
 https://github.com/pieterjantreur/SDE-group-assignment
 
 ## **`developer contributies`**
