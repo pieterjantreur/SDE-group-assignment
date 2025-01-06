@@ -2,7 +2,7 @@
 
 dit programma is een console-based versie van tic-tac-toe
 
-## developer contributies
+## **`developer contributies`**
 
 TKosterHZ en pieterjantreur
 
