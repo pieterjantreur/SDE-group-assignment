@@ -60,25 +60,4 @@ pieterjantreur heeft de Player-, HumanPlayer, InputAdapter interface en ConsoleI
   Het spel controleert voortdurend de status van het bord en "meldt" aan de spelers wanneer het spel eindigt (winst, verlies of gelijkspel). Hoewel deze implementatie basaal is, kan deze worden uitgebreid om meer complexe meldingssystemen te ondersteunen.
 
   **Waarom?**: Het Observer-patroon houdt alle betrokken partijen op de hoogte van de veranderingen in de staat van het bord.
-
----
-
-### **`Main.java`**
-- **Geen specifiek patroon**:
-  Dit bestand fungeert als het startpunt van het programma. Hier worden de spelers aangemaakt en wordt het spel gestart.
-
----
-
-### Design Patterns en Rubriek
-
-| **Bestand**               | **Design Pattern(s)**                                  |
-|---------------------------|-------------------------------------------------------|
-| `Board.java`              | Singleton                                             |
-| `Player.java`             | Factory Method                                        |
-| `HumanPlayer.java`        | Factory Method (concrete implementatie)               |
-| `InputAdapter.java`       | Adapter (interface definitie)                         |
-| `ConsoleInputAdapter.java`| Adapter (concrete implementatie)                      |
-| `Game.java`               | Strategy, Observer                                    |
-| `Main.java`               | Geen (startpunt van de applicatie)                    |
-
 ---
