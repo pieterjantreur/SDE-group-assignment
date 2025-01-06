@@ -35,10 +35,6 @@ public static Board getInstance() {
         this.name = name;
         this.mark = mark;
     }
-    public HumanPlayer(String name, char mark) {
-        super(name, mark);
-        scanner = new Scanner(System.in);
-    }
 ```
 
   **Waarom?**: Dit maakt het eenvoudig om in de toekomst andere soorten spelers toe te voegen, bijvoorbeeld een AI-speler, zonder de kernlogica van het spel te wijzigen.
@@ -48,7 +44,12 @@ public static Board getInstance() {
 ### **`HumanPlayer.java`**
 - **Factory Method Pattern**:
   Dit bestand implementeert een concrete versie van de `Player` abstracte klasse. Het vertegenwoordigt een menselijke speler die interacteert met het spel via de console.
-
+```java
+    public HumanPlayer(String name, char mark) {
+        super(name, mark);
+        scanner = new Scanner(System.in);
+    }
+```
   **Waarom?**: Dit zorgt voor flexibiliteit in het toevoegen van verschillende soorten spelers aan het spel.
 
 ---
@@ -56,6 +57,11 @@ public static Board getInstance() {
 ### **`InputAdapter.java`**
 - **Adapter Pattern**:
   Dit bestand definieert een interface waarmee invoermechanismen abstract worden. Dit maakt het mogelijk om verschillende soorten invoer (zoals console-invoer of grafische invoer) te ondersteunen zonder de spelcode te wijzigen.
+```java
+    public interface InputAdapter {
+      int[] getMove();
+    }
+```
 
   **Waarom?**: Het Adapter-patroon zorgt ervoor dat het spel flexibel is en uitbreidbaar met nieuwe invoermechanismen.
 
@@ -64,7 +70,12 @@ public static Board getInstance() {
 ### **`ConsoleInputAdapter.java`**
 - **Adapter Pattern**:
   Een concrete implementatie van de `InputAdapter` interface die console-invoer ondersteunt. Hiermee kunnen gebruikers hun zetten invoeren via de terminal.
-
+```java
+    public int[] getMove() {
+        System.out.println("Enter row and column (separated by space): ");
+        return new int[] { scanner.nextInt(), scanner.nextInt() };
+    }
+```
   **Waarom?**: Deze specifieke adapter maakt het mogelijk om console-invoer te gebruiken met het spel, terwijl andere adapters eenvoudig kunnen worden toegevoegd indien nodig.
 
 ---
@@ -72,11 +83,25 @@ public static Board getInstance() {
 ### **`Game.java`**
 - **Strategy Pattern**:
   Het spel gebruikt verschillende strategieën voor de invoer van spelers. De `makeMove`-methode van elke speler is een specifieke strategie die bepaalt hoe de speler met het bord interacteert.
+```java
+ while (!board.isFull() && !gameWon) {
+            board.displayBoard();
+            System.out.println(currentPlayer.getName() + "'s turn.");
+            currentPlayer.makeMove(board);
+```
 
   **Waarom?**: Dit maakt het mogelijk om invoerstrategieën eenvoudig te wisselen of uit te breiden, afhankelijk van de speler.
 
 - **Observer Pattern**:
   Het spel controleert voortdurend de status van het bord en "meldt" aan de spelers wanneer het spel eindigt (winst, verlies of gelijkspel). Hoewel deze implementatie basaal is, kan deze worden uitgebreid om meer complexe meldingssystemen te ondersteunen.
+```java
+ if (board.checkWin(currentPlayer.getMark())) {
+                gameWon = true;
+                board.displayBoard();
+                System.out.println(currentPlayer.getName() + " wins!");
+                return;
+            }
+```
 
   **Waarom?**: Het Observer-patroon houdt alle betrokken partijen op de hoogte van de veranderingen in de staat van het bord.
 ---
